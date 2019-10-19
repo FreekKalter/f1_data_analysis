@@ -1,0 +1,4 @@
+.ipynb_checkpoints/*
+__pycache__/*
+f1db_csv/*
+venv/*
