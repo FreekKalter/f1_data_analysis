@@ -22,7 +22,7 @@ file_columns = {'constructors'          : ['constructorId', 'constructorRef', 't
 
 def main():
     url = 'http://ergast.com/downloads/f1db_csv.zip'
-    dst = '/Users/freekkalter/github/pandas/f1db_csv'
+    dst = '/Users/freekkalter/f1_data_analysis/f1db_csv/'
     with tempfile.TemporaryDirectory() as tmpdirname:
         filename = f'{tmpdirname}/f1db_csv.zip'
         urllib.request.urlretrieve(url, filename=filename)
