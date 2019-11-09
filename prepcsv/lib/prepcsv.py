@@ -5,6 +5,8 @@ import time
 import shutil
 import io
 import sys
+import os
+from pathlib import Path
 
 file_columns = {'constructors'          : ['constructorId', 'constructorRef', 'teamName', 'nationality', 'url'],
                 'races'                 : ['raceId', 'year', 'round', 'circuitId', 'circuitName', 'date', 'time', 'url'],
@@ -24,18 +26,23 @@ file_columns = {'constructors'          : ['constructorId', 'constructorRef', 't
 
 def new_data(url, dst):
     res = req.head(url)
-    with open(dst+'/zipped_size') as fh:
-        size = int(fh.readline().strip())
-        new_size = int(res.headers['Content-Length'])
-        if new_size > size:
-            print(new_size, size)
-            return new_size
+    try:
+        with open(dst+'/zipped_size') as fh:
+            size = int(fh.readline().strip())
+            new_size = int(res.headers['Content-Length'])
+            if new_size > size:
+                print(new_size, size)
+                return new_size
+    except FileNotFoundError:
+        return 1
     return -1
 
 
 def main():
+    p = Path(os.path.realpath(__file__))
+
     url = 'http://ergast.com/downloads/f1db_csv.zip'
-    dst = '/Users/freekkalter/f1_data_analysis/f1db_csv/'
+    dst = os.path.join(p.parent.parent.parent, 'f1db_csv/')
     wait = False
     if len(sys.argv) > 1 and sys.argv[1] == '--wait':
         wait = True
