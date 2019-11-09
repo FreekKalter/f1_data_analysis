@@ -5,7 +5,7 @@ if [[ -d ./venv ]]; then
 else
     python3 -m venv "$(pwd)/venv"
     source ./venv/bin/activate
-    pip -m pip install --upgrade pip
-    pip -m pip install -r ./requirements.txt
+    python -m pip install --upgrade pip
+    python -m pip install -r ./requirements.txt
     jupyter notebook --no-browser
 fi
