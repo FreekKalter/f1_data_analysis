@@ -26,15 +26,15 @@ file_columns = {'constructors'          : ['constructorId', 'constructorRef', 't
 
 def new_data(url, dst):
     res = req.head(url)
+    new_size = int(res.headers['Content-Length'])
     try:
         with open(dst+'/zipped_size') as fh:
             size = int(fh.readline().strip())
-            new_size = int(res.headers['Content-Length'])
             if new_size > size:
                 print(new_size, size)
                 return new_size
     except FileNotFoundError:
-        return 1
+        return new_size
     return -1
 
 
