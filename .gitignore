@@ -2,3 +2,4 @@
 __pycache__/
 f1db_csv/
 venv/
+.DS_Store

@@ -15,7 +15,7 @@ file_columns = {'constructors'          : ['constructorId', 'constructorRef', 't
                 'results'               : ['resultId', 'raceId', 'driverId', 'constructorId', 'number', 'grid', 'position',
                                            'postionText', 'positionOrder', 'points', 'laps', 'time', 'milliseconds',
                                            'fastestLap', 'rank', 'fastestLapTime', 'fastestLapSpeed', 'statusId'],
-                'driver'                : ['driverId', 'driverRef', 'number', 'code', 'forename', 'surname',
+                'drivers'                : ['driverId', 'driverRef', 'number', 'code', 'forename', 'surname',
                                            'dob', 'nationality', 'url'],
                 'driver_standings'      : ['driverStandingsId', 'raceId', 'driverId', 'points', 'position',
                                            'positionText', 'wins'],

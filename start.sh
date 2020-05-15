@@ -1,7 +1,9 @@
 #!/bin/bash
 if [[ -d ./venv ]]; then
     source ./venv/bin/activate
-    python ./prepcsv/lib/prepcsv.py
+    if [[ $1 != "--no-update" ]]; then
+        python ./prepcsv/lib/prepcsv.py
+    fi
     jupyter notebook --no-browser
 else
     python3 -m venv "$(pwd)/venv"
